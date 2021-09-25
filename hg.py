@@ -29,20 +29,21 @@ if len(contours) != 0:
         x,y,w,h = cv2.boundingRect(c)
         tinggi = 10
         area1=cv2.contourArea(c)/1000
-        area = w*h/1000
-        are=str(area)
-        xway=w*tinggi
-        yway=h*tinggi
-        surface=(2*area)+(2*xway)+(2*yway)
-        volume=w*h*tinggi
-        print("%.2f" % surface)
-        position = (x+10, y + 30)
+        # area = w*h/1000
+        are=str(area1)
+        # xway=w*tinggi
+        # yway=h*tinggi
+        # surface=(2*area)+(2*xway)+(2*yway)
+        # volume=w*h*tinggi
+        # print("%.2f" % surface)
+        position = (10,30)
         position1 = (x + 10, y + 60)
         position2 = (x + 10, y + 90)
         # draw the biggest contour (c) in green
-        cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
-        cv2.putText(frame,"Area = "+are,position, cv2.FONT_HERSHEY_SIMPLEX,  1, (209, 80, 0, 255), 2)
-        cv2.putText(canny, "Area = " + "%.2f" % area1, position, cv2.FONT_HERSHEY_SIMPLEX, 1, (209, 80, 0, 255), 2)
+        # cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
+        # cv2.putText(frame,"Area = "+area1,position, cv2.FONT_HERSHEY_SIMPLEX,  1, (209, 80, 0, 255), 2)
+        cv2.putText(frame, "Area = " + "%.2f" % area1, position, cv2.FONT_HERSHEY_SIMPLEX, 1, (209, 80, 0, 255), 2)
+        print("%.2f"%area1)
 
 cv2.imshow("red",frame)
 cv2.waitKey(0)
